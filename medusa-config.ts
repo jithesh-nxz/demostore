@@ -12,5 +12,15 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  plugins: [
+    {
+      resolve: "@medusajs/admin",
+      options: {
+        // 'true' tells Medusa to serve the admin UI from the backend
+        serve: true,
+        path: "/app",
+      },
+    },
+  ],
 })

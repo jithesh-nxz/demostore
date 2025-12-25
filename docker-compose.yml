@@ -5,9 +5,9 @@ services:
     container_name: medusa_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: medusa-store
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_admin
+      POSTGRES_PASSWORD: 1729
     ports:
       - "5433:5432"
     volumes:

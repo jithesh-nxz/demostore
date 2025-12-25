@@ -1,14 +1,20 @@
-FROM node:24-alpine
+# Development Dockerfile for Medusa
+FROM node:20-alpine
 
-WORKDIR /app
+# Set working directory
+WORKDIR /server
 
-COPY package*.json ./
-RUN npm install
+# Copy package files and npm config
+COPY package.json package-lock.json ./
 
+# Install all dependencies using npm
+RUN npm install --legacy-peer-deps
+
+# Copy source code
 COPY . .
 
-RUN npm run build
-
+# Expose the port Medusa runs on
 EXPOSE 9000
 
-CMD ["npm", "start"]
+# Start with migrations and then the development server
+CMD ["./start.sh"]

@@ -5,7 +5,7 @@ services:
     container_name: medusa_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: medusa_db
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -40,7 +40,7 @@ services:
       - "5173:5173"
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/medusa_db
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/postgres
       - REDIS_URL=redis://redis:6379
     env_file:
       - .env
